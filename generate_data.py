@@ -19,7 +19,7 @@ plt.grid(True)
 
 
 # ذخیره‌سازی داده در فایل CSV
-with open('vibration_data.csv', 'w', newline='') as f:
+with open('vibration_data.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerow(['زمان (ثانیه)', 'شتاب (m/s^2)'])
     for t, d in zip(time, data):
