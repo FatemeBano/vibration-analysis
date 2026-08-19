@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import random
+import csv
 
 # تولید داده‌ی جعلی ارتعاشی (موج سینوسی با نویز)
 time = np.linspace(0, 2, 500)  # ۲ ثانیه
@@ -15,4 +16,14 @@ plt.title("داده‌ی ارتعاشی جعلی (شتاب)")
 plt.xlabel("زمان (ثانیه)")
 plt.ylabel("شتاب (m/s^2)")
 plt.grid(True)
+
+
+# ذخیره‌سازی داده در فایل CSV
+with open('vibration_data.csv', 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(['زمان (ثانیه)', 'شتاب (m/s^2)'])
+    for t, d in zip(time, data):
+        writer.writerow([t, d])
+
+print("داده‌ها در فایل vibration_data.csv ذخیره شدند.")
 plt.show()
